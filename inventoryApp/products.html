@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Products — Inventory MS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h2>📦 <span>Inventory</span>MS</h2>
+      <p>Local Storage Edition</p>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html"><span class="nav-icon">🏠</span><span>Dashboard</span></a></li>
+      <li><a href="products.html" class="active"><span class="nav-icon">📋</span><span>Products</span></a></li>
+      <li><a href="add-product.html"><span class="nav-icon">➕</span><span>Add Product</span></a></li>
+      <li><a href="categories.html"><span class="nav-icon">🏷️</span><span>Categories</span></a></li>
+      <li><a href="reports.html"><span class="nav-icon">📊</span><span>Reports</span></a></li>
+    </ul>
+    <div class="sidebar-footer">Data saved locally in browser</div>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main">
+
+    <div class="page-header">
+      <div>
+        <h1>Products</h1>
+        <p>Manage all your inventory items here.</p>
+      </div>
+      <a href="add-product.html" class="btn btn-primary">➕ Add Product</a>
+    </div>
+
+    <!-- Search & Filter Toolbar -->
+    <div class="toolbar">
+      <input
+        type="text"
+        class="search-box"
+        id="search-input"
+        placeholder="Search products..."
+      />
+      <select id="filter-category" style="padding:9px 12px; border:1px solid var(--border); border-radius:8px; font-size:14px; background:var(--bg-card)">
+        <option value="">All Categories</option>
+        <!-- Categories populated by products.js -->
+      </select>
+      <select id="filter-stock" style="padding:9px 12px; border:1px solid var(--border); border-radius:8px; font-size:14px; background:var(--bg-card)">
+        <option value="">All Stock</option>
+        <option value="low">Low Stock</option>
+        <option value="ok">In Stock</option>
+      </select>
+    </div>
+
+    <!-- Products Table -->
+    <div class="card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product Name</th>
+              <th>Category</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="products-tbody">
+            <!-- Filled by products.js in Phase 3 -->
+            <tr>
+              <td colspan="7">
+                <div class="empty-state">
+                  <div class="empty-icon">📭</div>
+                  <p>No products yet. <a href="add-product.html" style="color:var(--accent)">Add your first product →</a></p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/utils.js"></script>
+  <script src="js/products.js"></script>
+</body>
+</html>
