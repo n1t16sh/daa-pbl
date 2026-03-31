@@ -25,7 +25,6 @@ function renderCategoriesTable() {
 
     const count = products.filter(p => p.category === cat).length;
 
-    // Total stock value for this category
     const value = products
       .filter(p => p.category === cat)
       .reduce((sum, p) => sum + (Number(p.price) * Number(p.quantity)), 0);
@@ -76,7 +75,6 @@ function handleAddCategory() {
 
 function handleDeleteCategory(name, productCount) {
   if (productCount > 0) {
-    // Safety guard — don't allow deleting a category in use
     alert(
       `Cannot delete "${name}".\n\n` +
       `${productCount} product(s) are assigned to this category.\n` +
