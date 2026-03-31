@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- ========== SIDEBAR ========== -->
   <aside class="sidebar">
     <div class="sidebar-logo">
       <h2>📦 <span>Inventory</span>MS</h2>
@@ -24,7 +23,6 @@
     <div class="sidebar-footer">Data saved locally in browser</div>
   </aside>
 
-  <!-- ========== MAIN CONTENT ========== -->
   <main class="main">
 
     <div class="page-header">
@@ -35,7 +33,6 @@
       <a href="add-product.html" class="btn btn-primary">➕ Add Product</a>
     </div>
 
-    <!-- Search & Filter Toolbar -->
     <div class="toolbar">
       <input
         type="text"
@@ -45,7 +42,6 @@
       />
       <select id="filter-category" style="padding:9px 12px; border:1px solid var(--border); border-radius:8px; font-size:14px; background:var(--bg-card)">
         <option value="">All Categories</option>
-        <!-- Categories populated by products.js -->
       </select>
       <select id="filter-stock" style="padding:9px 12px; border:1px solid var(--border); border-radius:8px; font-size:14px; background:var(--bg-card)">
         <option value="">All Stock</option>
@@ -54,7 +50,6 @@
       </select>
     </div>
 
-    <!-- Products Table -->
     <div class="card">
       <div class="table-wrap">
         <table>
@@ -70,7 +65,6 @@
             </tr>
           </thead>
           <tbody id="products-tbody">
-            <!-- Filled by products.js in Phase 3 -->
             <tr>
               <td colspan="7">
                 <div class="empty-state">

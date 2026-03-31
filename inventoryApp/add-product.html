@@ -8,7 +8,6 @@
 </head>
 <body>
 
-  <!-- ========== SIDEBAR ========== -->
   <aside class="sidebar">
     <div class="sidebar-logo">
       <h2>📦 <span>Inventory</span>MS</h2>
@@ -24,32 +23,27 @@
     <div class="sidebar-footer">Data saved locally in browser</div>
   </aside>
 
-  <!-- ========== MAIN CONTENT ========== -->
+
   <main class="main">
 
     <div class="page-header">
       <div>
-        <!-- Title changes to "Edit Product" when editing -->
         <h1 id="form-title">Add New Product</h1>
         <p id="form-subtitle">Fill in the details below to add a product.</p>
       </div>
       <a href="products.html" class="btn btn-outline">← Back to Products</a>
     </div>
 
-    <!-- Alert shown on save success -->
     <div id="form-alert" style="display:none" class="alert alert-success">
       ✅ Product saved successfully!
     </div>
 
     <div class="card" style="max-width: 680px">
-      <!-- id="product-form" used by products.js to intercept submit -->
       <form id="product-form" novalidate>
 
-        <!-- Hidden field: stores product id when editing -->
         <input type="hidden" id="product-id" />
 
         <div class="form-grid">
-          <!-- Product Name -->
           <div class="form-group">
             <label for="product-name">Product Name *</label>
             <input
