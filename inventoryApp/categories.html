@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Categories — Inventory MS</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h2>📦 <span>Inventory</span>MS</h2>
+      <p>Local Storage Edition</p>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html"><span class="nav-icon">🏠</span><span>Dashboard</span></a></li>
+      <li><a href="products.html"><span class="nav-icon">📋</span><span>Products</span></a></li>
+      <li><a href="add-product.html"><span class="nav-icon">➕</span><span>Add Product</span></a></li>
+      <li><a href="categories.html" class="active"><span class="nav-icon">🏷️</span><span>Categories</span></a></li>
+      <li><a href="reports.html"><span class="nav-icon">📊</span><span>Reports</span></a></li>
+    </ul>
+    <div class="sidebar-footer">Data saved locally in browser</div>
+  </aside>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="main">
+
+    <div class="page-header">
+      <div>
+        <h1>Categories</h1>
+        <p>Organise your products into groups.</p>
+      </div>
+    </div>
+
+    <!-- Add Category Form (inline, no separate page needed) -->
+    <div class="card" style="max-width:480px; margin-bottom:24px">
+      <h2 style="font-size:15px; font-weight:600; margin-bottom:14px">Add New Category</h2>
+      <div style="display:flex; gap:10px">
+        <input
+          type="text"
+          id="cat-input"
+          placeholder="e.g. Electronics"
+          style="flex:1; padding:9px 12px; border:1px solid var(--border); border-radius:8px; font-size:14px"
+          onkeydown="if(event.key==='Enter') handleAddCategory()"
+        />
+        <button class="btn btn-primary" onclick="handleAddCategory()">Add</button>
+      </div>
+      <div id="cat-alert" style="display:none; margin-top:10px" class="alert alert-success">
+        ✅ Category added!
+      </div>
+    </div>
+
+    <!-- Categories List -->
+    <div class="card">
+      <h2 style="font-size:15px; font-weight:600; margin-bottom:16px">All Categories</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Category Name</th>
+              <th>Products</th>
+              <th>Stock Value</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="categories-tbody">
+            <!-- Filled by categories.js in Phase 4 -->
+            <tr>
+              <td colspan="5">
+                <div class="empty-state">
+                  <div class="empty-icon">🏷️</div>
+                  <p>No categories yet. Add one above.</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/utils.js"></script>
+  <script src="js/categories.js"></script>
+</body>
+</html>
