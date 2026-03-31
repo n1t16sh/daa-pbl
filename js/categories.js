@@ -1,31 +1,11 @@
-/* =============================================
-   categories.js — Phase 4: Categories
-   Handles:
-     - Listing all categories with product counts
-     - Adding a new category
-     - Deleting a category (with safety check)
-   This file only runs on categories.html
-   ============================================= */
-
 document.addEventListener('DOMContentLoaded', () => {
-  renderCategoriesTable();   // draw the table on page load
+  renderCategoriesTable();
 });
 
-
-// ─────────────────────────────────────────────
-// SECTION A — Render the categories table
-// ─────────────────────────────────────────────
-
-/*
-  renderCategoriesTable()
-  Reads all categories and all products.
-  For each category, counts how many products belong to it.
-  Builds one <tr> per category and injects into the table.
-*/
 function renderCategoriesTable() {
   const tbody    = document.getElementById('categories-tbody');
-  const cats     = getCategories();    // ['Electronics', 'Clothing', ...]
-  const products = getProducts();      // full products array
+  const cats     = getCategories();
+  const products = getProducts();
 
   // Empty state
   if (cats.length === 0) {
@@ -43,7 +23,6 @@ function renderCategoriesTable() {
 
   tbody.innerHTML = cats.map((cat, index) => {
 
-    // Count how many products belong to this category
     const count = products.filter(p => p.category === cat).length;
 
     // Total stock value for this category
@@ -74,19 +53,6 @@ function renderCategoriesTable() {
 }
 
 
-// ─────────────────────────────────────────────
-// SECTION B — Add a category
-// ─────────────────────────────────────────────
-
-/*
-  addCategory() — called by the "Add" button onclick in HTML.
-  Reads the input, calls addCategory() from utils.js,
-  shows feedback, and re-renders the table.
-
-  NOTE: utils.js also has a function called addCategory().
-  Here we wrap it with UI logic (alerts, clearing input).
-  We rename our local wrapper to avoid collision.
-*/
 function handleAddCategory() {
   const input = document.getElementById('cat-input');
   const name  = input.value.trim();
@@ -96,7 +62,6 @@ function handleAddCategory() {
     return;
   }
 
-  // addCategory() is from utils.js — returns false if duplicate
   const success = addCategory(name);
 
   if (!success) {
@@ -104,22 +69,11 @@ function handleAddCategory() {
     return;
   }
 
-  input.value = '';                        // clear the input
+  input.value = '';
   showCatAlert(`✅ "${name}" added!`, 'success');
-  renderCategoriesTable();                 // refresh table
+  renderCategoriesTable();
 }
 
-
-// ─────────────────────────────────────────────
-// SECTION C — Delete a category
-// ─────────────────────────────────────────────
-
-/*
-  handleDeleteCategory(name, productCount)
-  Safety check: if products are using this category,
-  warn the user. They must reassign those products first.
-  If no products use it, delete freely.
-*/
 function handleDeleteCategory(name, productCount) {
   if (productCount > 0) {
     // Safety guard — don't allow deleting a category in use
@@ -134,22 +88,12 @@ function handleDeleteCategory(name, productCount) {
   const confirmed = confirm(`Delete category "${name}"?`);
   if (!confirmed) return;
 
-  deleteCategory(name);           // from utils.js
+  deleteCategory(name);
   showCatAlert(`"${name}" deleted.`, 'danger');
-  renderCategoriesTable();        // refresh table
+  renderCategoriesTable();
 }
 
 
-// ─────────────────────────────────────────────
-// SECTION D — UI Helpers
-// ─────────────────────────────────────────────
-
-/*
-  showCatAlert(message, type)
-  Shows the inline alert below the add-category form.
-  type: 'success' | 'danger'
-  Auto-hides after 3 seconds.
-*/
 function showCatAlert(message, type = 'success') {
   const el = document.getElementById('cat-alert');
   el.textContent = message;
