@@ -16,7 +16,7 @@ function getProducts() {
 
 function saveProducts(products) {
   localStorage.setItem(KEYS.products, JSON.stringify(products));
-}
+}~!
 
 
 function addProduct(productObj) {
